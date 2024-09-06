@@ -3,7 +3,7 @@
 ## como inicia-lo
 
 1. executar tsc --init
-2. mudar as configurações especificando o local onde você deseja que ele coloque os arquivos compilados e seu local de origem.
+2. mudar as configurações especificando o local onde você deseja que ele coloque os arquivos compilados **(outDir)** e seu local de origem **(rootDir)**.
 
 ## comandos do cmd
 
