@@ -8,4 +8,4 @@ function somaSpread(...numeros:number[]):number {
     return numero
 }
 
-console.log(somaSpread(10,20,30,40,59))
+console.log(somaSpread(10,20,30,40,59))//tivemos que usar o spread porque isso não é um array!!!
