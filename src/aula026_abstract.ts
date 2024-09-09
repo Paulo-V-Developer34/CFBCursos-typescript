@@ -1,17 +1,23 @@
-//Podemos chamar de Objeto a instância de uma classe
+//diferentemente de JS o TS possui suporte para abstráct
 
-class computadores2 {
-    public nomec:string 
-    private ram:number      
-    private cpu:number      //isso está funcionando em pc gamer pois apesar de ser private quem está executando tudo é o método que está dentro da própria classe e que está sendo chamada pela classe filha, pois o método é public
-    private id:number      
+abstract class Componentes {
+    protected ram:number
+    protected cpu:number
+    constructor(ram:number=1,cpu:number=1){
+        this.ram=ram
+        this.cpu=cpu
+    }
+}
+
+class computadores3 extends Componentes{
+    public nomec:string      
+    private readonly id:number  //o READONLY é utilizado para que eu não possa modificar este valor novamente     
     protected ligado:boolean 
-    constructor (nomec:string,ram:number,cpu:number){//quando um objeto é instânciado automaticamente tudo o que estiver aqui será executado
-    this.nomec = nomec
-    this.ram = ram
-    this.cpu = cpu
-    this.ligado = false
-    this.id = this.gerarID()
+    constructor (nomec:string,ram:number,cpu:number){
+        super(ram,cpu)
+        this.nomec = nomec
+        this.ligado = false
+        this.id = this.gerarID()
     }
     info():void{
         console.log(this.nomec)
@@ -32,7 +38,7 @@ class computadores2 {
     }
 }
 
-class Pc_gamer2 extends computadores2{
+class Pc_gamer3 extends computadores3{
     public estilo:string
     constructor(estilo:string,nomec:string,ram:number,cpu:number){
         super(nomec,ram,cpu)
@@ -43,11 +49,11 @@ class Pc_gamer2 extends computadores2{
     // }
 }
 
-const pc_12 = new computadores2('Cleiton',2,4)
-const pc_22 = new Pc_gamer2('RGB','PC gamer',3,7) //consegui utilizar tudo da classe computadores
+const pc_13 = new computadores3('Cleiton',2,4)
+const pc_23 = new Pc_gamer3('RGB','PC gamer',3,7) //consegui utilizar tudo da classe computadores
 
 // pc14.ram = 1  //essa operação não pode ser feita por causa do private
-pc_12.nomec = 'PC mais ou menos' //aqui eu posso
+pc_13.nomec = 'PC mais ou menos' //aqui eu posso
 
-pc_12.info()
-pc_22.info()
+pc_13.info()
+pc_23.info()
