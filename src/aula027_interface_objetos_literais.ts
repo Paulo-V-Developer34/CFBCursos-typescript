@@ -3,7 +3,7 @@
 interface curso27 {
     titulo:string
     descricao:string
-    aulas:number
+    aulas?:number  //esse é opcional
 } 
 
 let curs1:curso27 //é um objeto literal porém que possui todas as propriedades e métodos de curso
